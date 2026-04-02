@@ -36,8 +36,12 @@
                 <a href="#pricing">Pricing <i class="ph ph-caret-down"></i></a>
                 <a href="#services">Services <i class="ph ph-caret-down"></i></a>
                 <a href="#gallery">Our Gallery <i class="ph ph-caret-down"></i></a>
+                <a href="#join" class="btn btn-primary mobile-only-btn" style="border-radius: 30px; font-weight:700;">Join Now</a>
             </nav>
-            <a href="#join" class="btn btn-primary nav-btn" style="border-radius: 30px; font-weight:700;">Join Now</a>
+            <a href="#join" class="btn btn-primary nav-btn desktop-only-btn" style="border-radius: 30px; font-weight:700;">Join Now</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="ph ph-list"></i>
+            </div>
         </div>
     </header>
 
@@ -427,6 +431,33 @@
                     header.classList.remove('scrolled');
                 }
             });
+
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    const icon = mobileMenu.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.classList.remove('ph-list');
+                        icon.classList.add('ph-x');
+                    } else {
+                        icon.classList.remove('ph-x');
+                        icon.classList.add('ph-list');
+                    }
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        const icon = mobileMenu.querySelector('i');
+                        icon.classList.remove('ph-x');
+                        icon.classList.add('ph-list');
+                    });
+                });
+            }
         });
     </script>
 </body>

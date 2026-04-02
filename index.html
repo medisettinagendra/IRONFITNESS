@@ -36,9 +36,11 @@
                 <a href="#pricing">Pricing <i class="ph ph-caret-down"></i></a>
                 <a href="#services">Services <i class="ph ph-caret-down"></i></a>
                 <a href="#gallery">Our Gallery <i class="ph ph-caret-down"></i></a>
-                <a href="#join" class="btn btn-primary mobile-only-btn" style="border-radius: 30px; font-weight:700;">Join Now</a>
+                <a href="#join" class="btn btn-primary mobile-only-btn"
+                    style="border-radius: 30px; font-weight:700;">Join Now</a>
             </nav>
-            <a href="#join" class="btn btn-primary nav-btn desktop-only-btn" style="border-radius: 30px; font-weight:700;">Join Now</a>
+            <a href="#join" class="btn btn-primary nav-btn desktop-only-btn"
+                style="border-radius: 30px; font-weight:700;">Join Now</a>
             <div class="menu-toggle" id="mobile-menu">
                 <i class="ph ph-list"></i>
             </div>
@@ -58,9 +60,8 @@
                 </h1>
 
                 <p class="hero-desc">
-                    Iron Fitness isn't just about reps and sets—it's about building strength and finding balance. From
-                    power moves to mindful moments, we've got everything you need to crush your goals and feel good
-                    doing it.
+                    Iron Fitness is your space to grow stronger, stay balanced, and feel confident in every move you
+                    make.
                 </p>
 
                 <div class="hero-actions">
@@ -102,7 +103,8 @@
                 <!-- Service 1: Cardio -->
                 <div class="service-card fade-in-up delay-1">
                     <div class="service-image-box">
-                        <img src="./assets/When You Should Log Miles on the Treadmill and When to Go Outside, According to Research.jpg" alt="Cardio" />
+                        <img src="./assets/When You Should Log Miles on the Treadmill and When to Go Outside, According to Research.jpg"
+                            alt="Cardio" />
                     </div>
                     <h3 class="service-title">CARDIO</h3>
                     <p class="service-desc">High energy cardio workouts to burn fat, boost stamina, and improve heart
@@ -112,7 +114,8 @@
                 <!-- Service 2: Strength Training -->
                 <div class="service-card fade-in-up delay-2">
                     <div class="service-image-box">
-                        <img src="./assets/Muskelaufbau_ 9 Tipps, die Männer beachten sollten.jpg" alt="Strength Training" />
+                        <img src="./assets/Muskelaufbau_ 9 Tipps, die Männer beachten sollten.jpg"
+                            alt="Strength Training" />
                     </div>
                     <h3 class="service-title">STRENGTH TRAINING</h3>
                     <p class="service-desc">Effective strength training to build muscle, increase power, and improve
@@ -142,7 +145,8 @@
                 <!-- Service 5: Nutrition Guidance -->
                 <div class="service-card fade-in-up delay-2">
                     <div class="service-image-box">
-                        <img src="./assets/Struggling to find easy, healthy meals_ Get 350….jpg" alt="Nutrition Guidance" />
+                        <img src="./assets/Struggling to find easy, healthy meals_ Get 350….jpg"
+                            alt="Nutrition Guidance" />
                     </div>
                     <h3 class="service-title">NUTRITION GUIDANCE</h3>
                     <p class="service-desc">Expert dietary advice and personalized nutrition plans to complement your
@@ -152,7 +156,8 @@
                 <!-- Service 6: Locker Facility -->
                 <div class="service-card fade-in-up delay-3">
                     <div class="service-image-box">
-                        <img src="./assets/Wooden locker, gym, yoga studio, locker, staff cabinet, swimming pool, bath center, locker, deposit.jpg" alt="Locker Facility" />
+                        <img src="./assets/Wooden locker, gym, yoga studio, locker, staff cabinet, swimming pool, bath center, locker, deposit.jpg"
+                            alt="Locker Facility" />
                     </div>
                     <h3 class="service-title">LOCKER FACILITY</h3>
                     <p class="service-desc">Secure and clean locker rooms to safely store your belongings and freshen up
@@ -277,7 +282,8 @@
                 <!-- Gallery Item 1 -->
                 <div class="gallery-card fade-in-up delay-1">
                     <div class="gallery-img-wrapper" style="background-color: #1a1a1a;">
-                        <img src="./assets/gym weight room.jpg" alt="Modern Equipment" style="width: 100%; height: 100%; object-fit: cover;" />
+                        <img src="./assets/gym weight room.jpg" alt="Modern Equipment"
+                            style="width: 100%; height: 100%; object-fit: cover;" />
                     </div>
                     <div class="gallery-overlay">
                         <h4>Modern Equipment</h4>
@@ -287,7 +293,8 @@
                 <!-- Gallery Item 2 -->
                 <div class="gallery-card fade-in-up delay-2">
                     <div class="gallery-img-wrapper" style="background-color: #222;">
-                        <img src="./assets/spacious-workout-area.jpg" alt="Spacious Workout Area" style="width: 100%; height: 100%; object-fit: cover;" />
+                        <img src="./assets/spacious-workout-area.jpg" alt="Spacious Workout Area"
+                            style="width: 100%; height: 100%; object-fit: cover;" />
                     </div>
                     <div class="gallery-overlay">
                         <h4>Spacious Workout Area</h4>
@@ -297,7 +304,8 @@
                 <!-- Gallery Item 3 -->
                 <div class="gallery-card fade-in-up delay-3">
                     <div class="gallery-img-wrapper" style="background-color: #111;">
-                        <img src="./assets/Building momentum.jpg" alt="Real Training Environment" style="width: 100%; height: 100%; object-fit: cover;" />
+                        <img src="./assets/Building momentum.jpg" alt="Real Training Environment"
+                            style="width: 100%; height: 100%; object-fit: cover;" />
                     </div>
                     <div class="gallery-overlay">
                         <h4>Real Training Environment</h4>
@@ -456,6 +464,19 @@
                         icon.classList.remove('ph-x');
                         icon.classList.add('ph-list');
                     });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (event) => {
+                    const isClickInsideMenu = navLinks.contains(event.target);
+                    const isClickOnToggle = mobileMenu.contains(event.target);
+
+                    if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const icon = mobileMenu.querySelector('i');
+                        icon.classList.remove('ph-x');
+                        icon.classList.add('ph-list');
+                    }
                 });
             }
         });
